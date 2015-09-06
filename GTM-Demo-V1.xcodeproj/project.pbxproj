@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20518D6EA9E97D5C6C766787 /* libPods-GTM-Demo-V1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E71CCF9CB5DBFE9826268CC /* libPods-GTM-Demo-V1.a */; };
 		463BF1A41B9C3D20008A756C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 463BF1A31B9C3D20008A756C /* main.m */; };
 		463BF1A71B9C3D20008A756C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 463BF1A61B9C3D20008A756C /* AppDelegate.m */; };
 		463BF1AA1B9C3D20008A756C /* GTM_Demo_V1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 463BF1A81B9C3D20008A756C /* GTM_Demo_V1.xcdatamodeld */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D90E5F93D35E12D68CB338F /* Pods-GTM-Demo-V1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTM-Demo-V1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GTM-Demo-V1/Pods-GTM-Demo-V1.debug.xcconfig"; sourceTree = "<group>"; };
+		1E71CCF9CB5DBFE9826268CC /* libPods-GTM-Demo-V1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GTM-Demo-V1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463BF19E1B9C3D20008A756C /* GTM-Demo-V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GTM-Demo-V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463BF1A21B9C3D20008A756C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463BF1A31B9C3D20008A756C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		463BF1BA1B9C3D20008A756C /* GTM-Demo-V1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GTM-Demo-V1Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463BF1BF1B9C3D20008A756C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463BF1C01B9C3D20008A756C /* GTM_Demo_V1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTM_Demo_V1Tests.m; sourceTree = "<group>"; };
+		65C7445425BA6A569CD44B59 /* Pods-GTM-Demo-V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTM-Demo-V1.release.xcconfig"; path = "Pods/Target Support Files/Pods-GTM-Demo-V1/Pods-GTM-Demo-V1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20518D6EA9E97D5C6C766787 /* libPods-GTM-Demo-V1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +73,8 @@
 				463BF1A01B9C3D20008A756C /* GTM-Demo-V1 */,
 				463BF1BD1B9C3D20008A756C /* GTM-Demo-V1Tests */,
 				463BF19F1B9C3D20008A756C /* Products */,
+				C9A8C40C205CBA7A90532C14 /* Pods */,
+				E84CBDD74CD422390AE1D30A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +129,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9A8C40C205CBA7A90532C14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D90E5F93D35E12D68CB338F /* Pods-GTM-Demo-V1.debug.xcconfig */,
+				65C7445425BA6A569CD44B59 /* Pods-GTM-Demo-V1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E84CBDD74CD422390AE1D30A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E71CCF9CB5DBFE9826268CC /* libPods-GTM-Demo-V1.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 463BF1C41B9C3D20008A756C /* Build configuration list for PBXNativeTarget "GTM-Demo-V1" */;
 			buildPhases = (
+				9A73BD11CAE3AADC4B229B50 /* Check Pods Manifest.lock */,
 				463BF19A1B9C3D20008A756C /* Sources */,
 				463BF19B1B9C3D20008A756C /* Frameworks */,
 				463BF19C1B9C3D20008A756C /* Resources */,
+				5F9E76346FDE1677B4C8A9CC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +242,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F9E76346FDE1677B4C8A9CC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GTM-Demo-V1/Pods-GTM-Demo-V1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A73BD11CAE3AADC4B229B50 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		463BF19A1B9C3D20008A756C /* Sources */ = {
@@ -349,6 +408,7 @@
 		};
 		463BF1C51B9C3D20008A756C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D90E5F93D35E12D68CB338F /* Pods-GTM-Demo-V1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "GTM-Demo-V1/Info.plist";
@@ -359,6 +419,7 @@
 		};
 		463BF1C61B9C3D20008A756C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C7445425BA6A569CD44B59 /* Pods-GTM-Demo-V1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "GTM-Demo-V1/Info.plist";
@@ -420,6 +481,7 @@
 				463BF1C61B9C3D20008A756C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		463BF1C71B9C3D20008A756C /* Build configuration list for PBXNativeTarget "GTM-Demo-V1Tests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +490,7 @@
 				463BF1C91B9C3D20008A756C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
