@@ -8,15 +8,48 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import <GoogleTagManager/TAGDataLayer.h>
+
+
+static NSString * const kGTMKeyBtnPressedCnt = @"buttonPressedTime";
+static NSString * const kGTMKeyAdDetail = @"adDetail";
+static NSString * const kGTMKeyShouldDisplayAd = @"shouldDisplayAd";
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
 @property (weak, nonatomic) IBOutlet UITextView *infoTextField;
 
+@property (weak, nonatomic) TAGContainer *container;
+@property (weak, nonatomic) TAGManager *tagManager;
+@property (weak, nonatomic) AppDelegate *appDelegate;
+@property (weak, nonatomic) TAGDataLayer *dataLayer;
+
 @end
 
 @implementation ViewController
 
+# pragma mark custom getter
+- (AppDelegate *)appDelegate
+{
+    return [UIApplication sharedApplication].delegate;
+}
+
+- (TAGContainer *)container
+{
+    return self.appDelegate.container;
+}
+
+- (TAGManager *)tagManager
+{
+    return self.appDelegate.tagManager;
+}
+
+- (TAGDataLayer *)dataLayer
+{
+    return self.tagManager.dataLayer;
+}
+
+# pragma mark - UIViewController Live cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -26,7 +59,7 @@
 {
     self.appVersionLabel.text =
     [NSString stringWithFormat:@"Current Version: %@", self.currentAppVersion];
-    self.infoTextField.text = @"Try press the button";
+    self.infoTextField.text = @"Ad should show up after 10 button press";
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self checkForAppUpdate];
@@ -40,8 +73,7 @@
 
 - (NSString *)latestAppVersion
 {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    TAGContainer *container = delegate.container;
+    TAGContainer *container = self.container;
     
     NSString *latestVersion = [container stringForKey:@"latestVersion"];
     return latestVersion;
@@ -89,19 +121,50 @@
 }
 
 - (IBAction)buttonPressed:(id)sender {
-    [self updateTextInInfoField];
+    [self increaseBtnPresseCntOnDataLayer];
+    [self updateInfoText];
+    [self checkIfAdShoulBeShown];
 }
 
-- (void)updateTextInInfoField
+- (void)updateInfoText
 {
-    [self.infoTextField setText:self.getLatestText];
+    TAGDataLayer *dataLayer = self.dataLayer;
+    NSNumber * cnt = (NSNumber *)[dataLayer get:kGTMKeyBtnPressedCnt];
+    NSString *info = [NSString stringWithFormat:@"Current datalayer buttonPressedTime %@", cnt];
+    [self.infoTextField setText:info];
 }
 
-- (NSString *)getLatestText
+- (void)increaseBtnPresseCntOnDataLayer
 {
-    static int cnt = 0;
-    cnt++;
-    return [NSString stringWithFormat:@"The button has been pressed %d times", cnt];
+    TAGDataLayer *dataLayer = self.dataLayer;
+    NSNumber * cnt = (NSNumber *)[dataLayer get:kGTMKeyBtnPressedCnt];
+    NSNumber * newCnt = @(cnt.intValue+1);
+    [dataLayer pushValue:newCnt forKey:kGTMKeyBtnPressedCnt];
+}
+
+- (void)checkIfAdShoulBeShown
+{
+    BOOL shouldDisplayAd = [self.container booleanForKey:kGTMKeyShouldDisplayAd];
+    if (shouldDisplayAd) {
+        NSString *addDetail = [self.container stringForKey:kGTMKeyAdDetail];
+        [self showAlertForInfo:addDetail];
+    }
+}
+
+- (void)showAlertForInfo:(NSString *)info
+{
+    UIAlertController *ac =
+    [UIAlertController alertControllerWithTitle:@"Ad"
+                                        message:info
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *colse =
+    [UIAlertAction actionWithTitle:@"Close"
+                             style:UIAlertActionStyleCancel
+                           handler:nil];
+    [ac addAction:colse];
+    [self presentViewController:ac animated:YES completion:nil];
+    
 }
 
 

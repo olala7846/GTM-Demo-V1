@@ -35,4 +35,12 @@ Set AppDelegate comforms to `TAGContainerOpenerNotifier` and implement
   });
 }
 ```
-##Step4 - User container varaibles
+##Step4 - Use container varaibles
+very simple, call ``container stringForKey:@"variableNameInValueCollection"]`
+##Step5 - Use Data Layer
+The demo use data layer varaibles to trigger ad on user press button for 10 times.
+1. Create a variable of type **Data Layer Variable** named "buttonPressedTime" (default value 0)
+2. Create two triggers name "Show Ad" and "Hode Ad" that fires on "buttonPressedTime" equals to 10 and not equal 10
+3. Create two value collections with `{"shouldDisplayAd": true}` and triggers on "Show Ad" and `{"shouldDisplayAd": false}` on "Hide Ad" trigger.
+4. On button pressed, fetch "buttonPressedTime" from data layer and push back after increased by 1
+5. Once user pressed the button for 10 times, `[self.container booleanForKey:@"shouldDisplayAd"]` will be true, and you can fetch your custom Ad text from container with `adDetail` key

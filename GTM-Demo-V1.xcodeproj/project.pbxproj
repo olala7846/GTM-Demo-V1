@@ -16,7 +16,7 @@
 		463BF1B21B9C3D20008A756C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1B11B9C3D20008A756C /* Images.xcassets */; };
 		463BF1B51B9C3D20008A756C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1B31B9C3D20008A756C /* LaunchScreen.xib */; };
 		463BF1C11B9C3D20008A756C /* GTM_Demo_V1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463BF1C01B9C3D20008A756C /* GTM_Demo_V1Tests.m */; };
-		463BF1CB1B9C45FD008A756C /* GTM-54WSBP in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1CA1B9C45FD008A756C /* GTM-54WSBP */; };
+		46EC6F5F1B9C76BA00625983 /* GTM-54WSBP in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1CA1B9C45FD008A756C /* GTM-54WSBP */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,7 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463BF1CB1B9C45FD008A756C /* GTM-54WSBP in Resources */,
+				46EC6F5F1B9C76BA00625983 /* GTM-54WSBP in Resources */,
 				463BF1B01B9C3D20008A756C /* Main.storyboard in Resources */,
 				463BF1B51B9C3D20008A756C /* LaunchScreen.xib in Resources */,
 				463BF1B21B9C3D20008A756C /* Images.xcassets in Resources */,
