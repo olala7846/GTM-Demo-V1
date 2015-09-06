@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <GoogleTagManager/TAGContainerOpener.h>
+#import <GoogleTagManager/TAGManager.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +18,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+// GTM
+@property (strong, nonatomic) TAGManager *tagManager;
+@property (strong, nonatomic) TAGContainer *container;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

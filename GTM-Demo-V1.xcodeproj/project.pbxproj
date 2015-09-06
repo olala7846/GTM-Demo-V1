@@ -16,6 +16,7 @@
 		463BF1B21B9C3D20008A756C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1B11B9C3D20008A756C /* Images.xcassets */; };
 		463BF1B51B9C3D20008A756C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1B31B9C3D20008A756C /* LaunchScreen.xib */; };
 		463BF1C11B9C3D20008A756C /* GTM_Demo_V1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463BF1C01B9C3D20008A756C /* GTM_Demo_V1Tests.m */; };
+		463BF1CB1B9C45FD008A756C /* GTM-54WSBP in Resources */ = {isa = PBXBuildFile; fileRef = 463BF1CA1B9C45FD008A756C /* GTM-54WSBP */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		463BF1BA1B9C3D20008A756C /* GTM-Demo-V1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GTM-Demo-V1Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463BF1BF1B9C3D20008A756C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463BF1C01B9C3D20008A756C /* GTM_Demo_V1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTM_Demo_V1Tests.m; sourceTree = "<group>"; };
+		463BF1CA1B9C45FD008A756C /* GTM-54WSBP */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTM-54WSBP"; sourceTree = "<group>"; };
 		65C7445425BA6A569CD44B59 /* Pods-GTM-Demo-V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTM-Demo-V1.release.xcconfig"; path = "Pods/Target Support Files/Pods-GTM-Demo-V1/Pods-GTM-Demo-V1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 		463BF1A11B9C3D20008A756C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				463BF1CA1B9C45FD008A756C /* GTM-54WSBP */,
 				463BF1A21B9C3D20008A756C /* Info.plist */,
 				463BF1A31B9C3D20008A756C /* main.m */,
 			);
@@ -228,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463BF1CB1B9C45FD008A756C /* GTM-54WSBP in Resources */,
 				463BF1B01B9C3D20008A756C /* Main.storyboard in Resources */,
 				463BF1B51B9C3D20008A756C /* LaunchScreen.xib in Resources */,
 				463BF1B21B9C3D20008A756C /* Images.xcassets in Resources */,

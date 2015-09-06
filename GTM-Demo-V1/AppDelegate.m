@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <TAGContainerOpenerNotifier>
 
 @end
 
@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.tagManager = [TAGManager instance];
+    [TAGContainerOpener openContainerWithId:@"GTM-54WSBP"
+                                 tagManager:self.tagManager
+                                   openType:kTAGOpenTypePreferFresh
+                                    timeout:nil
+                                   notifier:self];
+    
+    
+    
+    
     return YES;
 }
 
@@ -122,6 +133,16 @@
             abort();
         }
     }
+}
+
+#pragma mark - TAGContainerOpenerNotifier
+
+- (void)containerAvailable:(TAGContainer *)container
+{
+    NSLog(@"Container ready!");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.container = container;
+    });
 }
 
 @end
