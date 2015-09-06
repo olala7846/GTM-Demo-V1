@@ -10,6 +10,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *infoTextField;
 
 @end
 
@@ -24,6 +25,7 @@
 {
     self.appVersionLabel.text =
     [NSString stringWithFormat:@"Current Version: %@", self.currentAppVersion];
+    self.infoTextField.text = @"Try press the button";
     
     dispatch_after(1.0, dispatch_get_main_queue(), ^{
         [self checkForAppUpdate];
@@ -81,6 +83,21 @@
 
 }
 
+- (IBAction)buttonPressed:(id)sender {
+    [self updateTextInInfoField];
+}
+
+- (void)updateTextInInfoField
+{
+    [self.infoTextField setText:self.getLatestText];
+}
+
+- (NSString *)getLatestText
+{
+    static int cnt = 0;
+    cnt++;
+    return [NSString stringWithFormat:@"The button has been pressed %d times", cnt];
+}
 
 
 @end
