@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
@@ -27,7 +28,7 @@
     [NSString stringWithFormat:@"Current Version: %@", self.currentAppVersion];
     self.infoTextField.text = @"Try press the button";
     
-    dispatch_after(1.0, dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self checkForAppUpdate];
     });
 }
@@ -39,7 +40,11 @@
 
 - (NSString *)latestAppVersion
 {
-    return @"1.3.5";
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    TAGContainer *container = delegate.container;
+    
+    NSString *latestVersion = [container stringForKey:@"latestVersion"];
+    return latestVersion;
 }
 
 - (void)didReceiveMemoryWarning {
