@@ -19,7 +19,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-// GTM
+// Google Tag Manager
 @property (strong, nonatomic) TAGManager *tagManager;
 @property (strong, nonatomic) TAGContainer *container;
 

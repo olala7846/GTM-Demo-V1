@@ -19,9 +19,9 @@ static NSString * const kGTMKeyShouldDisplayAd = @"shouldDisplayAd";
 @property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
 @property (weak, nonatomic) IBOutlet UITextView *infoTextField;
 
+@property (weak, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) TAGContainer *container;
 @property (weak, nonatomic) TAGManager *tagManager;
-@property (weak, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) TAGDataLayer *dataLayer;
 
 @end
@@ -61,6 +61,7 @@ static NSString * const kGTMKeyShouldDisplayAd = @"shouldDisplayAd";
     [NSString stringWithFormat:@"Current Version: %@", self.currentAppVersion];
     self.infoTextField.text = @"Ad should show up after 10 button press";
     
+    // wait 1 second in case container is not ready
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self checkForAppUpdate];
     });
@@ -73,8 +74,8 @@ static NSString * const kGTMKeyShouldDisplayAd = @"shouldDisplayAd";
 
 - (NSString *)latestAppVersion
 {
+    // Get latest version from Google Tag Manager
     TAGContainer *container = self.container;
-    
     NSString *latestVersion = [container stringForKey:@"latestVersion"];
     return latestVersion;
 }
@@ -136,18 +137,20 @@ static NSString * const kGTMKeyShouldDisplayAd = @"shouldDisplayAd";
 
 - (void)increaseBtnPresseCntOnDataLayer
 {
+    // Get value from data-layer
     TAGDataLayer *dataLayer = self.dataLayer;
     NSNumber * cnt = (NSNumber *)[dataLayer get:kGTMKeyBtnPressedCnt];
+    
+    // Push value to data-layer
     NSNumber * newCnt = @(cnt.intValue+1);
     [dataLayer pushValue:newCnt forKey:kGTMKeyBtnPressedCnt];
 }
 
 - (void)checkIfAdShoulBeShown
 {
-    BOOL shouldDisplayAd = [self.container booleanForKey:kGTMKeyShouldDisplayAd];
-    if (shouldDisplayAd) {
-        NSString *addDetail = [self.container stringForKey:kGTMKeyAdDetail];
-        [self showAlertForInfo:addDetail];
+    if ([self.container booleanForKey:kGTMKeyShouldDisplayAd]) {
+        NSString *adDetail = [self.container stringForKey:kGTMKeyAdDetail];
+        [self showAlertForInfo:adDetail];
     }
 }
 

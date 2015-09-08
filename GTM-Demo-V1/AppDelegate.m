@@ -16,7 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     self.tagManager = [TAGManager instance];
     [TAGContainerOpener openContainerWithId:@"GTM-54WSBP"
@@ -24,9 +23,6 @@
                                    openType:kTAGOpenTypePreferFresh
                                     timeout:nil
                                    notifier:self];
-    
-    
-    
     
     return YES;
 }
